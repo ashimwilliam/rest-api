@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router(); 
-const mysql = require('mysql');
+//const mysql = require('mysql');
 //const bodyParser = require('body-parser');
 
 // create application/json parser
 //var jsonParser = bodyParser.json();
 
-var connection = mysql.createConnection({
+/*var connection = mysql.createConnection({
     host     : 'localhost',
     user     : 'root',
     password : '',
@@ -27,6 +27,12 @@ router.get('/users', function(req, resp){
     
     //console.log(req.body);
     //resp.send({type: 'GET'});
+});*/
+
+// get list of users from the db
+router.get('/users', function(req, resp, next){     
+    console.log(req.body);
+    resp.send({type: 'GET'});
 });
 
 // add a new user 
@@ -36,7 +42,7 @@ router.post('/users', function(req, resp){
 
     //if (!req.body) return resp.sendStatus(400);
 });
-
+ 
 // update a new user
 router.put('/users/:id', function(req, resp){
     resp.send({type: 'PUT'});
